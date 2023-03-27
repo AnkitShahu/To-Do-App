@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task List</title>
+</head>
+<body>
+	<h1>Task List</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for task in tasks %}
+				<tr>
+					<td>{{ task.title }}</td>
+					<td>{{ task.description }}</td>
+					<td>
+						{% comment %} <a href="{% url 'task_list' task.pk %}">View</a> {% endcomment %}
+						<a href="{% url 'task_update' task.pk %}">Edit</a>
+						<a href="{% url 'task_delete' task.pk %}">Delete</a>
+					</td>
+				</tr>
+			{% empty %}
+				<tr>
+					<td colspan="3">No tasks found.</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{% url 'task_create' %}">Add Task</a>
+</body>
+</html>
