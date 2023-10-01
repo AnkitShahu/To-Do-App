@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="row justify-content-center flex-direction-coloum">
+    <div class="row justify-content-center flex-column">
 <div>	<h1>{% if task.id %}Update Task{% else %}Create Task{% endif %}</h1></div>
 	<form method="post">
 		{% csrf_token %}
